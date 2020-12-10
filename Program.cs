@@ -80,8 +80,6 @@ namespace Raviheppaohjelma {
             _completed = true;
 
             _result = (string)e.Result;
-
-            //Console.WriteLine(_result);
         }
     }
 }

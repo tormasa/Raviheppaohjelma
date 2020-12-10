@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {}
+    "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {}
   },
   "projects": {
-    "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {
+    "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
+        "projectUniqueName": "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
         "projectName": "Raviheppaohjelma",
-        "projectPath": "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
-        "packagesPath": "C:\\Users\\qwerty\\.nuget\\packages\\",
-        "outputPath": "D:\\Ohjelmointi\\Raviheppaohjelma\\obj\\",
+        "projectPath": "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
+        "packagesPath": "C:\\Users\\matti\\.nuget\\packages\\",
+        "outputPath": "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\qwerty\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\matti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
