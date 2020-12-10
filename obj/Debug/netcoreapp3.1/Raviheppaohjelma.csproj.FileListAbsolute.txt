@@ -1,0 +1,13 @@
+D:\Ohjelmointi\Raviheppaohjelma\bin\Debug\netcoreapp3.1\Raviheppaohjelma.exe
+D:\Ohjelmointi\Raviheppaohjelma\bin\Debug\netcoreapp3.1\Raviheppaohjelma.deps.json
+D:\Ohjelmointi\Raviheppaohjelma\bin\Debug\netcoreapp3.1\Raviheppaohjelma.runtimeconfig.json
+D:\Ohjelmointi\Raviheppaohjelma\bin\Debug\netcoreapp3.1\Raviheppaohjelma.runtimeconfig.dev.json
+D:\Ohjelmointi\Raviheppaohjelma\bin\Debug\netcoreapp3.1\Raviheppaohjelma.dll
+D:\Ohjelmointi\Raviheppaohjelma\bin\Debug\netcoreapp3.1\Raviheppaohjelma.pdb
+D:\Ohjelmointi\Raviheppaohjelma\obj\Debug\netcoreapp3.1\Raviheppaohjelma.csprojAssemblyReference.cache
+D:\Ohjelmointi\Raviheppaohjelma\obj\Debug\netcoreapp3.1\Raviheppaohjelma.AssemblyInfoInputs.cache
+D:\Ohjelmointi\Raviheppaohjelma\obj\Debug\netcoreapp3.1\Raviheppaohjelma.AssemblyInfo.cs
+D:\Ohjelmointi\Raviheppaohjelma\obj\Debug\netcoreapp3.1\Raviheppaohjelma.csproj.CoreCompileInputs.cache
+D:\Ohjelmointi\Raviheppaohjelma\obj\Debug\netcoreapp3.1\Raviheppaohjelma.dll
+D:\Ohjelmointi\Raviheppaohjelma\obj\Debug\netcoreapp3.1\Raviheppaohjelma.pdb
+D:\Ohjelmointi\Raviheppaohjelma\obj\Debug\netcoreapp3.1\Raviheppaohjelma.genruntimeconfig.cache
