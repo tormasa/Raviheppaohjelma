@@ -2,23 +2,61 @@
 using System.Net;
 using System.ComponentModel;
 using System.Threading;
+using Microsoft.Data.Sqlite;
 
 namespace Raviheppaohjelma {
     class Program {
+        static SqliteConnectionStringBuilder _connectionStringBuilder;
+        static SqliteConnection _connection;
+
         static void Main(string[] args) {
+            int kisaId = 166059;
+
+            OpenDatabase();
+
+            while(!(_connection.State == System.Data.ConnectionState.Open)) {
+                Thread.Sleep(1000);
+            }
 
             DownloadRace downloadRace = new DownloadRace();
 
-            downloadRace.DownloadPage("https://ravit.is.fi/tulokset/166059");
+            downloadRace.DownloadPage("https://ravit.is.fi/tulokset/" +kisaId);
 
             while (!downloadRace.DownloadCompleted) {
                 Thread.Sleep(1000);
             }
 
-            Analyze(downloadRace._result);
+            int[] hevoset = Analyze(downloadRace._result);
+
+            for (int i = 0; i < hevoset.Length; i++) {
+                AddToDatabase(kisaId, hevoset[i]);
+            }
+
+            CloseDatabase();
         }
 
-        static void Analyze(string result) {
+        static void OpenDatabase() {
+            _connectionStringBuilder = new SqliteConnectionStringBuilder();
+            _connectionStringBuilder.DataSource = "./main.db";
+
+            using (_connection = new SqliteConnection(_connectionStringBuilder.ConnectionString)) {
+                try {
+				    _connection.Open();
+                    Console.WriteLine("hep");
+                }
+                catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
+                }
+			}
+
+            
+        }
+
+        static void CloseDatabase() {
+           _connection.Close();
+        }
+
+        static int[] Analyze(string result) {
             int maxHorses = 20;
             string[] separators = new string[20];
             string[] stringArr;
@@ -39,8 +77,17 @@ namespace Raviheppaohjelma {
                 hevoset[i-1] = Int32.Parse(secondArr[0]);
             }
 
-            foreach(var horse in hevoset) {
-                Console.WriteLine(horse);
+            return hevoset;
+        }
+
+        static void AddToDatabase(int kisaID, int horseID) {
+            string cmdString = "INSERT INTO sijoitukset(kisa_id, hevonen_id) VALUES(@param1, @param2)";
+
+            using (SqliteCommand cmd = new SqliteCommand(cmdString, _connection)){
+                cmd.Parameters.Add("@param1", SqliteType.Integer).Value = kisaID;
+                cmd.Parameters.Add("@param2", SqliteType.Integer).Value = horseID;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
             }
         }
     }

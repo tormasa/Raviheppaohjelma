@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {}
+    "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {}
   },
   "projects": {
-    "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {
+    "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
+        "projectUniqueName": "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
         "projectName": "Raviheppaohjelma",
-        "projectPath": "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
-        "packagesPath": "C:\\Users\\matti\\.nuget\\packages\\",
-        "outputPath": "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\obj\\",
+        "projectPath": "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
+        "packagesPath": "C:\\Users\\qwerty\\.nuget\\packages\\",
+        "outputPath": "D:\\Ohjelmointi\\Raviheppaohjelma\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\matti\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\qwerty\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +35,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

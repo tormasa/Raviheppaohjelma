@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "ejftIsT9jTMrHczilpy7Ghpk647rXkrPwOjp6N86w9iXzAGddGcbVlboZ+EH2QzCh4/bVYjlNSe0dg9uo5kJZw==",
+  "dgSpecHash": "gcclwDlC44T7EbGJeT4NuqZv4hE/Yp8ZusxYSEKupm1nJqFnl1t2TkFcyzf6dNHwGh5DLmfgexbsKMsVPic3yw==",
   "success": true,
-  "projectFilePath": "D:\\Ohjelmointiprojektit\\Raviheppaohjelma\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Ohjelmointi\\Raviheppaohjelma\\Raviheppaohjelma.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\qwerty\\.nuget\\packages\\microsoft.data.sqlite\\5.0.1\\microsoft.data.sqlite.5.0.1.nupkg.sha512",
+    "C:\\Users\\qwerty\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.1\\microsoft.data.sqlite.core.5.0.1.nupkg.sha512",
+    "C:\\Users\\qwerty\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\qwerty\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
+    "C:\\Users\\qwerty\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\qwerty\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
+    "C:\\Users\\qwerty\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
   "logs": []
 }
