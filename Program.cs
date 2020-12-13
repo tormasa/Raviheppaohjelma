@@ -10,26 +10,37 @@ namespace Raviheppaohjelma {
         static SqliteConnection _connection;
 
         static void Main(string[] args) {
-            int kisaId = 166059;
+            int startKisaId = 166785;
+            int kisaId;
+            int kisaCount = 1;
 
             OpenDatabase();
 
-            while(!(_connection.State == System.Data.ConnectionState.Open)) {
-                Thread.Sleep(1000);
-            }
+            for (int i = 0; i < kisaCount; i++) {
+                kisaId = startKisaId + i;
 
-            DownloadRace downloadRace = new DownloadRace();
+                DownloadRace downloadRace = new DownloadRace();
 
-            downloadRace.DownloadPage("https://ravit.is.fi/tulokset/" +kisaId);
+                downloadRace.DownloadPage("https://ravit.is.fi/tulokset/" +kisaId);
 
-            while (!downloadRace.DownloadCompleted) {
-                Thread.Sleep(1000);
-            }
+                while (!downloadRace.DownloadCompleted) {
+                    Thread.Sleep(1000);
+                }
 
-            int[] hevoset = Analyze(downloadRace._result);
+                // Tarkistetaan onko lähtöä juostu
+                if (RaceRun(downloadRace._result)) {
+                    int[] hevoset = Analyze(downloadRace._result);
 
-            for (int i = 0; i < hevoset.Length; i++) {
-                AddToDatabase(kisaId, hevoset[i]);
+                    for (int h = 0; h < hevoset.Length; h++) {
+                        AddToDatabase(kisaId, hevoset[h]);
+                    }
+
+                    Console.WriteLine("Inserted race " +kisaId +" to database");
+                }
+                else {
+                    Console.WriteLine("Current race has not been ran");
+                    break;
+                }
             }
 
             CloseDatabase();
@@ -37,28 +48,30 @@ namespace Raviheppaohjelma {
 
         static void OpenDatabase() {
             _connectionStringBuilder = new SqliteConnectionStringBuilder();
-            _connectionStringBuilder.DataSource = "./main.db";
+            _connectionStringBuilder.DataSource = "D:/hepat.db";
 
-            using (_connection = new SqliteConnection(_connectionStringBuilder.ConnectionString)) {
-                try {
-				    _connection.Open();
-                    Console.WriteLine("hep");
-                }
-                catch (Exception ex) {
-                    Console.WriteLine(ex.Message);
-                }
-			}
-
-            
+            _connection = new SqliteConnection(_connectionStringBuilder.ConnectionString);
+            _connection.Open();
+            Console.WriteLine("open database");
         }
 
         static void CloseDatabase() {
            _connection.Close();
+           Console.WriteLine("close database");
+        }
+
+        static bool RaceRun(string result) {
+            if (result.IndexOf("<td>1.</td>") > -1) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         static int[] Analyze(string result) {
             int maxHorses = 20;
-            string[] separators = new string[20];
+            string[] separators = new string[maxHorses + 1];
             string[] stringArr;
             string[] firstArr;
             string[] secondArr;
@@ -67,6 +80,7 @@ namespace Raviheppaohjelma {
             for (int i = 0; i < maxHorses; i++) {
                 separators[i] = "<td>" +i +".</td>";
             }
+            separators[maxHorses] = "<td>h";
 
             stringArr = result.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             hevoset = new int[stringArr.Length - 1];
