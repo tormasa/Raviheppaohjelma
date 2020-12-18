@@ -13,6 +13,49 @@ namespace Raviheppaohjelma {
         static string databaseLoc = "D:/Google Drive/Tietokannat/Heppatietokanta/hepat.db";
 
         static void Main(string[] args) {
+            Console.Clear();
+            TaskSelection();
+        }
+
+        static void TaskSelection() {
+            Console.WriteLine("1. Download Races");
+            Console.WriteLine("\n(Press ESC to quit)");
+
+            while (true) {
+                ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+                if (keyInfo.Key == ConsoleKey.D1 || keyInfo.Key == ConsoleKey.NumPad1) {
+                    Console.Clear();
+                    Console.WriteLine("Add new races to database. (Press ESC to quit)");
+                    AddRacesToDatabase();
+
+                    break;
+                }
+                else if (keyInfo.Key == ConsoleKey.Escape) {
+                    Environment.Exit(0);
+                }
+                else {
+                    Console.Clear();
+                    Console.WriteLine("Invalid selection. Try again:\n");
+                }
+            }
+        }
+
+        static void OpenDatabase() {
+            _connectionStringBuilder = new SqliteConnectionStringBuilder();
+            _connectionStringBuilder.DataSource = databaseLoc;
+
+            _connection = new SqliteConnection(_connectionStringBuilder.ConnectionString);
+            _connection.Open();
+            Console.WriteLine("open database");
+        }
+
+        static void CloseDatabase() {
+           _connection.Close();
+           Console.WriteLine("close database");
+        }
+
+        static void AddRacesToDatabase() {
             int kisaId;
             int noMoreRacesCounter = 0;
             int noMoreRacesMax = 100;
@@ -66,24 +109,6 @@ namespace Raviheppaohjelma {
             if (noMoreRaces) Console.WriteLine("No more races to add");
 
             CloseDatabase();
-        }
-
-        static void OpenDatabase() {
-            _connectionStringBuilder = new SqliteConnectionStringBuilder();
-            _connectionStringBuilder.DataSource = databaseLoc;
-
-            _connection = new SqliteConnection(_connectionStringBuilder.ConnectionString);
-            _connection.Open();
-            Console.WriteLine("open database");
-        }
-
-        static void CloseDatabase() {
-           _connection.Close();
-           Console.WriteLine("close database");
-        }
-
-        static void AddRacesToDatabase() {
-            
         }
 
         static bool RaceRun(string result) {
@@ -172,6 +197,7 @@ namespace Raviheppaohjelma {
             }
         }
     }
+
     class DownloadRace {
         private volatile bool _completed;
         public string _result;
